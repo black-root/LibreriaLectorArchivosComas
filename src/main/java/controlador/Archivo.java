@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Archivo implements Serializable {
+    
 private List<String> textoLista = new ArrayList<String>();
 
     public boolean validarPath(final String path){
@@ -21,22 +22,27 @@ private List<String> textoLista = new ArrayList<String>();
         }
         return salida;
     }
-
-    public List<String> cargarArchivo(final String path){
+    /* se agrego un segundo parametro String Caracter, porque asi sera mas dinamico el metodo a la hora 
+    de llamar*/
+    public List<String> cargarArchivo(final String path, String caracter){
         validarPath(path);
-        String csvFile = new File("").getAbsolutePath ()+"/src/main/resources/tpi2018.csv";
+        // String csvFile = new File("").getAbsolutePath ()+"/src/main/resources/tpi2018.csv";
         textoLista.removeAll(textoLista);
 
         BufferedReader br = null;
         String line = "";
-        String cvsSplitBy = ",";
+        //caracter con el que se separaran las columnas
+        String cvsSplitBy = caracter;
         try {
-            br = new BufferedReader(new FileReader(csvFile));
+            br = new BufferedReader(new FileReader(path));
             while ((line = br.readLine()) != null) {
-
-                // use comma as separator
+                String text="";
+                // use comma as separator                
                 String[] country = line.split(cvsSplitBy);
-                String text = "Country [code= " + country[4] + " , name=" + country[5] + "]";
+                for(int i=0; i<country.length;i++){
+                     text = text+"\t"+country[i];
+                }
+                //String text = "Country [code= " + country[4] + " , name=" + country[5] + "]";
                 System.out.println(text);
                 textoLista.add(text);
 

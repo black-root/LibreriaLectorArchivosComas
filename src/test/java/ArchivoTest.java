@@ -27,6 +27,6 @@ public class ArchivoTest {
        // System.out.println("prueba 2 "+ClassLoader.getSystemResource("tpi2018.csv").toString());
         String path = new File("").getAbsolutePath ()+"/src/main/resources/tpi2018.csv";
         Archivo instance = new Archivo();
-        instance.cargarArchivo(path);
+        instance.cargarArchivo(path,",");
     }
 }

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -20,7 +21,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author ronal
  */
 public class frmLector extends javax.swing.JFrame {
-Archivo ar = new Archivo(); 
+
+    Archivo ar = new Archivo();
+
     /**
      * Creates new form frmLector
      */
@@ -42,6 +45,8 @@ Archivo ar = new Archivo();
         txtAbrir = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtArea = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        cmbCaracter = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(300, 200));
@@ -56,14 +61,23 @@ Archivo ar = new Archivo();
                 btnAbrirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAbrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 90, -1));
-        getContentPane().add(txtAbrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 290, 30));
+        getContentPane().add(btnAbrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 90, -1));
 
+        txtAbrir.setEditable(false);
+        getContentPane().add(txtAbrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 290, 30));
+
+        txtArea.setEditable(false);
         txtArea.setColumns(20);
         txtArea.setRows(5);
         jScrollPane1.setViewportView(txtArea);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 390, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 400, 260));
+
+        jLabel2.setText("Caracter que separa las columnas");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+
+        cmbCaracter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ",", ".", "+", "/", " " }));
+        getContentPane().add(cmbCaracter, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 60, 20));
 
         pack();
         setLocationRelativeTo(null);
@@ -71,27 +85,35 @@ Archivo ar = new Archivo();
 
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
 
-        List<String> lista = new  ArrayList<String>();
+        List<String> lista = new ArrayList<String>();
         JButton open = new JButton();
         JFileChooser fc = new JFileChooser();
-        fc.setCurrentDirectory(new java.io.File( (new File("").getAbsolutePath ()+"/src/main/resources")));
+        //Se asigna una ruta por defecto
+        fc.setCurrentDirectory(new java.io.File((new File("").getAbsolutePath() + "/src/main/resources")));
+        //TItulo de la venta a lanzar para escoger y navegar
         fc.setDialogTitle("Archivos separados por comas");
         fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         //Creamos el filtro
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("*CSV", "csv");
         //Le indicamos el filtro
         fc.setFileFilter(filtro);
+
+        //Si se leccionamos la opcion abrir, procederemos a ejecutar lo siguiente
         if (fc.showOpenDialog(open) == JFileChooser.APPROVE_OPTION) {
+
+            String path = fc.getSelectedFile().getAbsolutePath();
+            //Mostramos el path en consola y el JFrame
+            System.out.println("Se selecciono " + path);
+            txtAbrir.setText(path);
+            
+            lista = ar.cargarArchivo(path, cmbCaracter.getSelectedItem().toString());
+            //imprimimos en el txtArea del JFrame
+            String texto = "";
+            for (int i = 0; i < lista.size(); i++) {
+                texto = texto + "\n" + lista.get(i);
+            }
+            txtArea.setText(texto);
         }
-        String path = fc.getSelectedFile().getAbsolutePath();
-        System.out.println("Se selecciono " + path);
-        txtAbrir.setText(path);
-        lista = ar.cargarArchivo(path);
-        String texto = "";
-        for(int i =0; i<lista.size();i++){
-            texto = texto +"\n"+lista.get(i);
-        }
-        txtArea.setText(texto);    
     }//GEN-LAST:event_btnAbrirActionPerformed
 
     /**
@@ -131,6 +153,8 @@ Archivo ar = new Archivo();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAbrir;
+    private javax.swing.JComboBox<String> cmbCaracter;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtAbrir;
     private javax.swing.JTextArea txtArea;
