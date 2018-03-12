@@ -29,7 +29,7 @@ public class frmLector extends javax.swing.JFrame {
      */
     public frmLector() {
         initComponents();
-        setSize(440, 350);
+        setSize(470, 420);
     }
 
     /**
@@ -71,7 +71,7 @@ public class frmLector extends javax.swing.JFrame {
         txtArea.setRows(5);
         jScrollPane1.setViewportView(txtArea);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 400, 260));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 440, 260));
 
         jLabel2.setText("Caracter que separa las columnas");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
