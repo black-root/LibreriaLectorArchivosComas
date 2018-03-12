@@ -1,8 +1,11 @@
 package controlador;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Archivo implements Serializable {
+private List<String> textoLista = new ArrayList<String>();
 
     public boolean validarPath(final String path){
         boolean salida = false;
@@ -19,9 +22,10 @@ public class Archivo implements Serializable {
         return salida;
     }
 
-    public void cargarArchivo(final String path){
+    public List<String> cargarArchivo(final String path){
         validarPath(path);
         String csvFile = new File("").getAbsolutePath ()+"/src/main/resources/tpi2018.csv";
+        textoLista.removeAll(textoLista);
 
         BufferedReader br = null;
         String line = "";
@@ -32,8 +36,9 @@ public class Archivo implements Serializable {
 
                 // use comma as separator
                 String[] country = line.split(cvsSplitBy);
-
-                System.out.println("Country [code= " + country[4] + " , name=" + country[5] + "]");
+                String text = "Country [code= " + country[4] + " , name=" + country[5] + "]";
+                System.out.println(text);
+                textoLista.add(text);
 
             }
 
@@ -50,6 +55,6 @@ public class Archivo implements Serializable {
                 }
             }
         }
-
+        return textoLista;
     }
 }
