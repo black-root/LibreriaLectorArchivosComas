@@ -6,6 +6,8 @@
 package vista;
 
 import controlador.Archivo;
+import modelo.Mantenimiento;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -22,12 +24,12 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class frmLector extends javax.swing.JFrame {
 
-    Archivo ar = new Archivo();
+    private Archivo ar = new Archivo();
 
     /**
      * Creates new form frmLector
      */
-    public frmLector() {
+    private frmLector() {
         initComponents();
         setSize(470, 420);
     }
@@ -85,7 +87,7 @@ public class frmLector extends javax.swing.JFrame {
 
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
 
-        List<String> lista = new ArrayList<String>();
+        List<Mantenimiento> lista = new ArrayList<>();
         JButton open = new JButton();
         JFileChooser fc = new JFileChooser();
         //Se asigna una ruta por defecto
@@ -105,14 +107,23 @@ public class frmLector extends javax.swing.JFrame {
             //Mostramos el path en consola y el JFrame
             System.out.println("Se selecciono " + path);
             txtAbrir.setText(path);
-            
-            lista = ar.cargarArchivo(path, cmbCaracter.getSelectedItem().toString());
-            //imprimimos en el txtArea del JFrame
-            String texto = "";
-            for (int i = 0; i < lista.size(); i++) {
-                texto = texto + "\n" + lista.get(i);
+            try{
+                lista = ar.cargarArchivo(path, cmbCaracter.getSelectedItem().toString());
+            }catch (NullPointerException e){
+                System.out.println("Error"+e);
             }
-            txtArea.setText(texto);
+            //imprimimos en el txtArea del JFrame, convertimos la lista Mantenimiento para poderla imprimir
+            StringBuilder texto = new StringBuilder();
+            for (Mantenimiento aLista : lista) {
+                texto.append("\n").append(aLista.getIdMantenimiento()).append("\t").
+                        append(aLista.getHistorico()).append("\t").
+                        append(aLista.getNumeroInventario()).append("\t").
+                        append(aLista.getMarca()).append("\t").append(aLista.getNumeroSerie()).append("\t").
+                        append(aLista.getModelo()).append(aLista.getEncargado()).append("\t").
+                        append(aLista.getOs()).append(aLista.getVersion()).append("\t").
+                        append(aLista.isLicencia()).append("\t").append(aLista.getObservaciones());
+            }
+            txtArea.setText(texto.toString());
         }
     }//GEN-LAST:event_btnAbrirActionPerformed
 
@@ -132,11 +143,7 @@ public class frmLector extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmLector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmLector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(frmLector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(frmLector.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
