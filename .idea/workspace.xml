@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20bfeeb1-f6c8-4aa9-aca5-5ab85db12bf6" name="Default" comment="Se finalizo el rest y su servicio, solo falta agregar el metodo @PUT en la clase MantenimientoService">
+    <list default="true" id="20bfeeb1-f6c8-4aa9-aca5-5ab85db12bf6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controlador/Archivo.java" afterPath="$PROJECT_DIR$/src/main/java/controlador/Archivo.java" />
     </list>
@@ -432,7 +432,7 @@
       <option name="presentableId" value="Default" />
       <updated>1520310607850</updated>
       <workItem from="1520310612144" duration="4298000" />
-      <workItem from="1520912114586" duration="17018000" />
+      <workItem from="1520912114586" duration="17036000" />
     </task>
     <task id="LOCAL-00001" summary="-Se agrego la clase pojo o entity(Mantenimiento)&#10;-Se implemento la clase pojo en la clase Archivo(extrae los datos)&#10;-Se modifico la interfaz para que este no imprima de una Lista de String si no de una List&lt;Mantenimiento&gt;">
       <created>1520926228840</created>
@@ -455,14 +455,22 @@
       <option name="project" value="LOCAL" />
       <updated>1520932334639</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Se finalizo el rest y su servicio, solo falta agregar el metodo @PUT en la clase MantenimientoService">
+      <created>1520932441679</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1520932441679</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21316000" />
+    <option name="totallyTimeSpent" value="21334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="732" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
