@@ -7,9 +7,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Archivo implements Serializable {
+public class Archivo{
+    private static List<Mantenimiento> listaMan = new ArrayList<>();
 
-    public boolean validarPath(final String path){
+    public static boolean validarPath(final String path){
         boolean salida = false;
         //con trim eliminaremos los espacios que pueda contener el path
         if(path!=null && !path.trim().isEmpty()){
@@ -21,9 +22,8 @@ public class Archivo implements Serializable {
     de llamar*/
 
     //metodo para alimentar el modelo(pojo)
-    public  List<Mantenimiento> cargarArchivo(final String path, String caracter){
-        List<Mantenimiento> listaMan = new ArrayList<>();
-
+    public static void setCargarArchivo(final String path, String caracter){
+        listaMan.clear();
         if(validarPath(path)){
 
         BufferedReader br = null;
@@ -65,10 +65,12 @@ public class Archivo implements Serializable {
             }
         }
        }
-       return listaMan;
-     
+
+
     }
-
-
+    //metodo muy necesario para el MantenimientoService
+    public static List<Mantenimiento> getCargarArchivo(){
+        return listaMan;
+   }
 
 }

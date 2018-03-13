@@ -9,13 +9,10 @@ import controlador.Archivo;
 import modelo.Mantenimiento;
 
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -108,7 +105,8 @@ public class frmLector extends javax.swing.JFrame {
             System.out.println("Se selecciono " + path);
             txtAbrir.setText(path);
             try{
-                lista = ar.cargarArchivo(path, cmbCaracter.getSelectedItem().toString());
+                ar.setCargarArchivo(path, cmbCaracter.getSelectedItem().toString());
+                lista = controlador.Archivo.getCargarArchivo();
             }catch (NullPointerException e){
                 System.out.println("Error"+e);
             }

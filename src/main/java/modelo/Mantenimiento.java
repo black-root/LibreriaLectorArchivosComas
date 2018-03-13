@@ -1,6 +1,7 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 
 public class Mantenimiento implements Serializable{
@@ -19,6 +20,7 @@ public class Mantenimiento implements Serializable{
     private String version;
     private String observaciones;
 
+    public Mantenimiento(){}
 
     public Mantenimiento(int idMantenimiento, String historico, String numeroInventario, String marca,
                          String numeroSerie, String modelo, String Encargado,
@@ -122,5 +124,21 @@ public class Mantenimiento implements Serializable{
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    //estos metodos sirven para comparar en la clase MantenimientoService
+    //Hace posible que dos instancias que sean iguales si y solo si los ID sean iguales
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Mantenimiento)) return false;
+        Mantenimiento that = (Mantenimiento) o;
+        return getIdMantenimiento() == that.getIdMantenimiento();
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getIdMantenimiento());
     }
 }
