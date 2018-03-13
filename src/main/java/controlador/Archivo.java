@@ -32,10 +32,10 @@ public class Archivo{
             try {
             br = new BufferedReader(new FileReader(path));
             while ((line = br.readLine()) != null) {
-                String text="";
+                StringBuilder text= new StringBuilder();
                 // use comma as separator                
                 String[] country = line.split(caracter);
-                for (String aCountry : country) text = text + "\t" + aCountry;
+                for (String aCountry : country) text.append("\t").append(aCountry);
                 //Alimentamos el constructor del pojo
                 try {
                     Mantenimiento mantenimiento = new Mantenimiento(Integer.parseInt(country[0]), country[1],
@@ -51,8 +51,6 @@ public class Archivo{
 
             }
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
