@@ -27,7 +27,7 @@ public class ArchivoTest {
        // System.out.println("prueba 2 "+ClassLoader.getSystemResource("tpi2018.csv").toString());
         String path = new File("").getAbsolutePath ()+"/src/main/resources/mantenimientoinfo.csv";
         Archivo instance = new Archivo();
-        instance.setCargarArchivo(path,",");
+        instance.setCargarArchivo(path,",","CONTROL GENERAL");
 
     }
 

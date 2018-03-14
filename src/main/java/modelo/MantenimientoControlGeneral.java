@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 
-public class Mantenimiento implements Serializable{
+public class MantenimientoControlGeneral implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -18,13 +18,14 @@ public class Mantenimiento implements Serializable{
     private String os;
     private boolean licencia;
     private String version;
+    private String arquitectura;
     private String observaciones;
 
-    public Mantenimiento(){}
+    public MantenimientoControlGeneral(){}
 
-    public Mantenimiento(int idMantenimiento, String historico, String numeroInventario, String marca,
+    public MantenimientoControlGeneral(int idMantenimiento, String historico, String numeroInventario, String marca,
                          String numeroSerie, String modelo, String Encargado,
-                         String os, String version, boolean licencia,  String observaciones) {
+                         String os, String version,String arquitectura, boolean licencia,  String observaciones) {
         this.idMantenimiento = idMantenimiento;
         this.Encargado = Encargado;
         this.historico = historico;
@@ -36,6 +37,15 @@ public class Mantenimiento implements Serializable{
         this.licencia = licencia;
         this.version = version;
         this.observaciones = observaciones;
+        this.arquitectura = arquitectura;
+    }
+
+    public String getArquitectura() {
+        return arquitectura;
+    }
+
+    public void setArquitectura(String arquitectura) {
+        this.arquitectura = arquitectura;
     }
 
     public int getIdMantenimiento() {
@@ -131,8 +141,8 @@ public class Mantenimiento implements Serializable{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Mantenimiento)) return false;
-        Mantenimiento that = (Mantenimiento) o;
+        if (!(o instanceof MantenimientoControlGeneral)) return false;
+        MantenimientoControlGeneral that = (MantenimientoControlGeneral) o;
         return getIdMantenimiento() == that.getIdMantenimiento();
     }
 
