@@ -138,17 +138,30 @@ public class MantenimientoControlGeneral implements Serializable{
 
     //estos metodos sirven para comparar en la clase MantenimientoService
     //Hace posible que dos instancias que sean iguales si y solo si los ID sean iguales
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof MantenimientoControlGeneral)) return false;
-        MantenimientoControlGeneral that = (MantenimientoControlGeneral) o;
-        return getIdMantenimiento() == that.getIdMantenimiento();
-    }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(getIdMantenimiento());
+        int hash = 7;
+        hash = 89 * hash + this.idMantenimiento;
+        return hash;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final MantenimientoControlGeneral other = (MantenimientoControlGeneral) obj;
+        if (this.idMantenimiento != other.idMantenimiento) {
+            return false;
+        }
+        return true;
+    }
+   
 }

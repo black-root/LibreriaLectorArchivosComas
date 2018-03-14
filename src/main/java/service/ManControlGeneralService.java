@@ -9,8 +9,8 @@ import java.util.List;
 
 //esta clase puede ser probada en el navegador pero no tenemos :v un war, asi que tocara hacer unos test
 @Path("mantenimiento")
-public class MantenimientoService {
-    private static List<MantenimientoControlGeneral> lista = controlador.Archivo.getCargarArchivo();
+public class ManControlGeneralService {
+    private static List<MantenimientoControlGeneral> lista = controlador.Archivo.getCargarArchivoCG();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON) //produce un json

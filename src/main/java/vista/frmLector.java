@@ -14,6 +14,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import modelo.MantenimientoHistorialPreventivo;
 
 /**
  *
@@ -91,8 +92,9 @@ public class frmLector extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
-
-        List<MantenimientoControlGeneral> lista = new ArrayList<>();
+        String texto = "";
+        List<MantenimientoControlGeneral> listaCG = new ArrayList<>();
+        List<MantenimientoHistorialPreventivo> listaHP = new ArrayList<>();
         JButton open = new JButton();
         JFileChooser fc = new JFileChooser();
         //Se asigna una ruta por defecto
@@ -112,24 +114,37 @@ public class frmLector extends javax.swing.JFrame {
             //Mostramos el path en consola y el JFrame
             System.out.println("Se selecciono " + path);
             txtAbrir.setText(path);
-            try {
-                ar.setCargarArchivo(path, cmbCaracter.getSelectedItem().toString(), cmbEstructuraArchivo.getSelectedItem().toString());
-                lista = controlador.Archivo.getCargarArchivo();
-            } catch (NullPointerException e) {
-                System.out.println("Error" + e);
-            }
-            //imprimimos en el txtArea del JFrame, convertimos la lista Mantenimiento para poderla imprimir
-            String texto = "";
             if (cmbEstructuraArchivo.getSelectedItem().toString().equals("CONTROL GENERAL")) {
-                for (int i = 0; i < lista.size(); i++) {
-                    texto += lista.get(i).getIdMantenimiento() + "\t" + lista.get(i).getHistorico()
-                            + "\t" + lista.get(i).getMarca() + "\t" + lista.get(i).getNumeroSerie()
-                            + "\t" + lista.get(i).getModelo() + "\t" + lista.get(i).getEncargado()
-                            + "\t" + lista.get(i).getOs() + "\t" + lista.get(i).getVersion() + "\t" + lista.get(i).getArquitectura()
-                            + "\t" + lista.get(i).isLicencia() + "\t" + lista.get(i).getObservaciones();
+                try {
+                    ar.setCargarArchivo(path, cmbCaracter.getSelectedItem().toString(), cmbEstructuraArchivo.getSelectedItem().toString());
+                    listaCG = controlador.Archivo.getCargarArchivoCG();
+                } catch (NullPointerException e) {
+                    System.out.println("Error" + e);
                 }
-            }else{
-            System.out.print("Seleccione una estructura");
+                //imprimimos en el txtArea del JFrame, convertimos la lista Mantenimiento para poderla imprimir
+                
+
+                for (int i = 0; i < listaCG.size(); i++) {
+                    texto += listaCG.get(i).getIdMantenimiento() + "\t" + listaCG.get(i).getHistorico()
+                            + "\t" + listaCG.get(i).getMarca() + "\t" + listaCG.get(i).getNumeroSerie()
+                            + "\t" + listaCG.get(i).getModelo() + "\t" + listaCG.get(i).getEncargado()
+                            + "\t" + listaCG.get(i).getOs() + "\t" + listaCG.get(i).getVersion() + "\t" + listaCG.get(i).getArquitectura()
+                            + "\t" + listaCG.get(i).isLicencia() + "\t" + listaCG.get(i).getObservaciones()+"\n";
+                }
+            } else if(cmbEstructuraArchivo.getSelectedItem().toString().equals("HISTORIAL DE MANTENIMIENTO")) {
+                try {
+                    ar.setCargarArchivo(path, cmbCaracter.getSelectedItem().toString(), cmbEstructuraArchivo.getSelectedItem().toString());
+                    listaHP = controlador.Archivo.getCargarArchivoHP();
+                } catch (NullPointerException e) {
+                    System.out.println("Error" + e);
+                }
+                //imprimimos en el txtArea del JFrame, convertimos la lista Mantenimiento para poderla imprimir
+            
+
+                for (int i = 0; i < listaHP.size(); i++) {
+                    texto += listaHP.get(i).getId() + "\t" + listaHP.get(i).getTipoMatto()
+                            + "\t" + listaHP.get(i).getObervacionesHardware() + "\t" + listaHP.get(i).getObservacionesSoftware()+"\n";
+                }
             }
             txtArea.setText(texto);
         }
