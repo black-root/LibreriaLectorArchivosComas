@@ -12,7 +12,7 @@ public class ArchivoTest {
     public void validarPathTest() {
         System.out.println("validarPath");
         String path = null;
-        path = (new File("").getAbsolutePath ()+"/src/main/resources/mantenimientoinfo.csv");
+        path = (new File("").getAbsolutePath ()+"/src/main/resources/mantenimientoControlGeneral.csv");
         System.out.println("" + path);
         Archivo instance = new Archivo();
         boolean expResult = true;
