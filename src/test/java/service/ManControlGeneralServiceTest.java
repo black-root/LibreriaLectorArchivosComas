@@ -19,6 +19,12 @@ import org.mockito.Mockito;
 import static io.restassured.RestAssured.get;
 import static org.hamcrest.CoreMatchers.equalTo;
 import io.restassured.RestAssured;
+import java.util.ArrayList;
+import java.util.List;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.core.GenericType;
+import org.eclipse.jetty.io.ssl.ALPNProcessor;
 
 
 
@@ -63,12 +69,18 @@ public class ManControlGeneralServiceTest {
      */
     @Test
     public void testGetMantenimientos() {
+   
         System.out.println("getMantenimientos");
+        Client cliente = ClientBuilder.newClient();
         ManControlGeneralService instance = new ManControlGeneralService();
-        Response expResult = instance.getMantenimientos();
-        Response result = null;
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
+        //Response expResult =null;
+        Response expResult = cliente.target("/mantenimientoGeneralService").request().get(Response.class);
+        Response result = instance.getMantenimientos();
+        //assertEquals(expResult, result);
+        assertEquals(expResult.getStatusInfo().getFamily(), result); //Response.Status.Family.SUCCESSFUL
+        assertEquals(expResult.getMediaType(), result);
+        assertEquals(expResult.readEntity(new GenericType<List<MantenimientoControlGeneral>>(){}),result );
+        
         
     }
 
