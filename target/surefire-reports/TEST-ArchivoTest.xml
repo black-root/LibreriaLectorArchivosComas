@@ -1,59 +1,96 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< Upstream, based on origin/master
 <testsuite tests="3" failures="0" name="ArchivoTest" time="0.11" errors="0" skipped="0">
+=======
+<testsuite tests="3" failures="0" name="ArchivoTest" time="0.192" errors="0" skipped="0">
+>>>>>>> 1232cca Validando interfaz
   <properties>
-    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
-    <property name="java.vm.version" value="25.151-b12"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/jdk1.8.0_131/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.131-b11"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
-    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="file.encoding.pkg" value="sun.io"/>
     <property name="user.country" value="SV"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="test" value="ArchivoTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+<<<<<<< Upstream, based on origin/master
     <property name="user.dir" value="/home/yisusjr/Escritorio/LibreriaLectorArchivosComas"/>
     <property name="java.runtime.version" value="1.8.0_151-8u151-b12-1~deb9u1-b12"/>
+=======
+    <property name="user.dir" value="/home/fernando/Escritorio/Ciclo I-2018/tpi/LibreriaLectorArchivosComas"/>
+    <property name="java.runtime.version" value="1.8.0_131-b11"/>
+>>>>>>> 1232cca Validando interfaz
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/jdk1.8.0_131/jre/lib/endorsed"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="line.separator" value="
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Linux"/>
+<<<<<<< Upstream, based on origin/master
     <property name="maven.ext.class.path" value="/home/yisusjr/netbeans-8.2/java/maven-nblib/netbeans-eventspy.jar"/>
     <property name="classworlds.conf" value="/home/yisusjr/netbeans-8.2/java/maven/bin/m2.conf"/>
+=======
+    <property name="maven.ext.class.path" value="/home/fernando/netbeans-8.2/java/maven-nblib/netbeans-eventspy.jar"/>
+    <property name="classworlds.conf" value="/home/fernando/netbeans-8.2/java/maven/bin/m2.conf"/>
+>>>>>>> 1232cca Validando interfaz
     <property name="sun.jnu.encoding" value="UTF-8"/>
+<<<<<<< Upstream, based on origin/master
     <property name="java.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+=======
+    <property name="java.library.path" value="/usr/lib/jvm/jdk1.8.0_131/jre/lib/amd64:/usr/lib/jvm/jdk1.8.0_131/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+>>>>>>> 1232cca Validando interfaz
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+<<<<<<< Upstream, based on origin/master
     <property name="os.version" value="4.9.0-6-amd64"/>
     <property name="user.home" value="/home/yisusjr"/>
+=======
+    <property name="os.version" value="3.16.0-4-amd64"/>
+    <property name="user.home" value="/home/fernando"/>
+>>>>>>> 1232cca Validando interfaz
     <property name="user.timezone" value="America/El_Salvador"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
     <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="UTF-8"/>
+<<<<<<< Upstream, based on origin/master
     <property name="user.name" value="yisusjr"/>
     <property name="java.class.path" value="/home/yisusjr/netbeans-8.2/java/maven/boot/plexus-classworlds-2.4.jar"/>
+=======
+    <property name="user.name" value="fernando"/>
+    <property name="java.class.path" value="/home/fernando/netbeans-8.2/java/maven/boot/plexus-classworlds-2.4.jar"/>
+>>>>>>> 1232cca Validando interfaz
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
+<<<<<<< Upstream, based on origin/master
     <property name="java.home" value="/usr/lib/jvm/java-8-openjdk-amd64/jre"/>
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=ArchivoTest -Dmaven.ext.class.path=/home/yisusjr/netbeans-8.2/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
+=======
+    <property name="java.home" value="/usr/lib/jvm/jdk1.8.0_131/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=ArchivoTest -Dmaven.ext.class.path=/home/fernando/netbeans-8.2/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
+>>>>>>> 1232cca Validando interfaz
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="es"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.version" value="1.8.0_151"/>
-    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="java.version" value="1.8.0_131"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/jdk1.8.0_131/jre/lib/ext:/usr/java/packages/lib/ext"/>
     <property name="securerandom.source" value="file:/dev/./urandom"/>
-    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/jdk1.8.0_131/jre/lib/resources.jar:/usr/lib/jvm/jdk1.8.0_131/jre/lib/rt.jar:/usr/lib/jvm/jdk1.8.0_131/jre/lib/sunrsasign.jar:/usr/lib/jvm/jdk1.8.0_131/jre/lib/jsse.jar:/usr/lib/jvm/jdk1.8.0_131/jre/lib/jce.jar:/usr/lib/jvm/jdk1.8.0_131/jre/lib/charsets.jar:/usr/lib/jvm/jdk1.8.0_131/jre/lib/jfr.jar:/usr/lib/jvm/jdk1.8.0_131/jre/classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
+<<<<<<< Upstream, based on origin/master
     <property name="maven.home" value="/home/yisusjr/netbeans-8.2/java/maven"/>
+=======
+    <property name="maven.home" value="/home/fernando/netbeans-8.2/java/maven"/>
+>>>>>>> 1232cca Validando interfaz
     <property name="file.separator" value="/"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -61,7 +98,12 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
+<<<<<<< Upstream, based on origin/master
   <testcase classname="ArchivoTest" name="validarPathTest" time="0.04"/>
   <testcase classname="ArchivoTest" name="cargarArchivoTestCG" time="0.001"/>
+=======
+  <testcase classname="ArchivoTest" name="validarPathTest" time="0.036"/>
+  <testcase classname="ArchivoTest" name="cargarArchivoTestCG" time="0"/>
+>>>>>>> 1232cca Validando interfaz
   <testcase classname="ArchivoTest" name="cargarArchivoTestHP" time="0"/>
 </testsuite>

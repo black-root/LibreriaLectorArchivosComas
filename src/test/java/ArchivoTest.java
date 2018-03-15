@@ -1,5 +1,4 @@
 
-import com.jayway.restassured.RestAssured;
 import controlador.Archivo;
 import org.junit.Test;
 
@@ -7,22 +6,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import javax.ws.rs.core.Response;
-import modelo.MantenimientoControlGeneral;
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.servlet.DefaultServlet;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
-import org.junit.AfterClass;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.rules.TemporaryFolder;
-import service.ManControlGeneralService;
 
 public class ArchivoTest {
     private  File tempfile =null;
@@ -34,8 +22,9 @@ public class ArchivoTest {
     public void crearArchivosTemp() throws IOException {
         String contentido1 = "4, HCE4, 12040.3301. 080.0087, Dell, 22S5JL1, Optiplex 780, Licdo. Jorge Mauricio Rivera,"
                 + " Windows, 7.0 Ultimate SP1, 64 bits, 0,"
-                + "Office 2007 Original, 2GB RAM"
-                + "Monitor N° 12040.3301.080.0091 PC no tiene UPS"
+                + "Office 2007 Original, 2GB RAM "
+                + "Monitor N° 12040.3301.080.0091 PC no tiene UPS "
+
                 + "EQUIPO NO POSEE CUENTA DE ADMIN",
                 contenido2 = "2, 13/03/2017, CRR, -,"
                 + "Restauración de fábrica de sistema Operativo"
@@ -78,7 +67,8 @@ public class ArchivoTest {
     //test para historialPreventivo
     @Test
     public void cargarArchivoTestHP() {
-        System.out.println("cargarArchivoHistorialPreventivo");
+
+        System.out.println("cargarArchivoHistorialPeventivo");
         //System.out.println("PROBANDO MAIN "+new File("").getAbsolutePath ()+"/src/main/resources/tpi2018.csv");
         // System.out.println("prueba 2 "+ClassLoader.getSystemResource("tpi2018.csv").toString());
         String path = tempfile1.getAbsolutePath();
