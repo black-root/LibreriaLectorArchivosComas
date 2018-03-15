@@ -16,16 +16,10 @@ public class Archivo {
     private static List<MantenimientoHistorialPreventivo> listaManHP = new ArrayList<>();
 
     public static boolean validarPath(final String path) {
-        boolean salida = false;
+       boolean salida = false;
         //con trim eliminaremos los espacios que pueda contener el path
-        if (path != null && !path.trim().isEmpty()) {
-            
-        }
-        
-         if (path != null && path.trim().isEmpty()==false) {
-            if(Paths.get(path).toFile().isDirectory()||Paths.get(path).toFile().isFile()){
-                salida = Paths.get(path).toFile().exists();
-            }   
+        if(path!=null && !path.trim().isEmpty()){
+            salida = Paths.get(path).toFile().exists();
         }
         return salida;
     }

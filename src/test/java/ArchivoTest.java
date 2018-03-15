@@ -1,4 +1,5 @@
 
+import com.jayway.restassured.RestAssured;
 import controlador.Archivo;
 import org.junit.Test;
 
@@ -6,18 +7,30 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import javax.ws.rs.core.Response;
+import modelo.MantenimientoControlGeneral;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.DefaultServlet;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+import org.junit.AfterClass;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.rules.TemporaryFolder;
+import service.ManControlGeneralService;
 
 public class ArchivoTest {
-
+    private  File tempfile =null;
+    private  File tempfile1 =null;
     @Rule
     public TemporaryFolder DirectorioPrueba = new TemporaryFolder();
 
-    @Test
+    @Before
     public void crearArchivosTemp() throws IOException {
         String contentido1 = "4, HCE4, 12040.3301. 080.0087, Dell, 22S5JL1, Optiplex 780, Licdo. Jorge Mauricio Rivera,"
                 + " Windows, 7.0 Ultimate SP1, 64 bits, 0,\n"
@@ -29,8 +42,8 @@ public class ArchivoTest {
                 + "Instalación de programas utilitarios\n"
                 + "Creación de respaldo de datos\n"
                 + "Creación de cuenta de usuario standard";
-        File tempfile = DirectorioPrueba.newFile("controlGeneral.csv");
-        File tempfile1 = DirectorioPrueba.newFile("historialPreventivo.csv");
+        tempfile = DirectorioPrueba.newFile("controlGeneral.csv");
+        tempfile1 = DirectorioPrueba.newFile("historialPreventivo.csv");
         try (FileWriter fw = new FileWriter(tempfile.getAbsolutePath()); PrintWriter pw = new PrintWriter(fw)) {
             pw.println(contentido1);
         }
@@ -38,16 +51,15 @@ public class ArchivoTest {
             pw.println(contenido2);
         }
     }
-
+    
     @Test
-    public void validarPathTest() {
+    public void validarPathTest() throws IOException {
         System.out.println("validarPath");
-        String path = null;
-        path = DirectorioPrueba.toString() + "/controlGeneral.csv";
-        System.out.println("" + path);
+        //FileWriter path = fw;
+        System.out.println("" + tempfile.getAbsolutePath());
         Archivo instance = new Archivo();
-        boolean expResult = false;
-        boolean result = instance.validarPath(path);
+        boolean expResult = true;
+        boolean result = instance.validarPath(tempfile.getAbsolutePath());
         assertEquals(expResult, result);
     }
 
@@ -74,4 +86,5 @@ public class ArchivoTest {
         instance.setCargarArchivo(path, ",", "HISTORIAL PREVENTIVO");
 
     }
+    
 }
