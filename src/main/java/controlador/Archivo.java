@@ -19,10 +19,17 @@ public class Archivo {
         boolean salida = false;
         //con trim eliminaremos los espacios que pueda contener el path
         if (path != null && !path.trim().isEmpty()) {
-            salida = Paths.get(path).toFile().exists();
+            
+        }
+        
+         if (path != null && path.trim().isEmpty()==false) {
+            if(Paths.get(path).toFile().isDirectory()||Paths.get(path).toFile().isFile()){
+                salida = Paths.get(path).toFile().exists();
+            }   
         }
         return salida;
     }
+     
 
     /* se agrego un segundo parametro String Caracter, porque asi sera mas dinamico el metodo a la hora 
     de llamar*/

@@ -16,7 +16,7 @@ import modelo.MantenimientoHistorialPreventivo;
  *
  * @author yisus
  */
-@Path("mantenimientoPreventivoService")
+@Path("manControlPreventivoService")
 public class ManHistorialPreventivoService {
     private static List<MantenimientoHistorialPreventivo> lista = controlador.Archivo.getCargarArchivoHP();
 
