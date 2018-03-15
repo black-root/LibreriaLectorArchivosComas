@@ -33,14 +33,14 @@ public class ArchivoTest {
     @Before
     public void crearArchivosTemp() throws IOException {
         String contentido1 = "4, HCE4, 12040.3301. 080.0087, Dell, 22S5JL1, Optiplex 780, Licdo. Jorge Mauricio Rivera,"
-                + " Windows, 7.0 Ultimate SP1, 64 bits, 0,\n"
-                + "Office 2007 Original, 2GB RAM\n"
-                + "Monitor N° 12040.3301.080.0091 PC no tiene UPS\n"
+                + " Windows, 7.0 Ultimate SP1, 64 bits, 0,"
+                + "Office 2007 Original, 2GB RAM"
+                + "Monitor N° 12040.3301.080.0091 PC no tiene UPS"
                 + "EQUIPO NO POSEE CUENTA DE ADMIN",
-                contenido2 = "2, 13/03/2017, CRR, -,\n"
-                + "Restauración de fábrica de sistema Operativo\n"
-                + "Instalación de programas utilitarios\n"
-                + "Creación de respaldo de datos\n"
+                contenido2 = "2, 13/03/2017, CRR, -,"
+                + "Restauración de fábrica de sistema Operativo"
+                + "Instalación de programas utilitarios"
+                + "Creación de respaldo de datos"
                 + "Creación de cuenta de usuario standard";
         tempfile = DirectorioPrueba.newFile("controlGeneral.csv");
         tempfile1 = DirectorioPrueba.newFile("historialPreventivo.csv");
@@ -66,10 +66,10 @@ public class ArchivoTest {
     //test para controlGeneral
     @Test
     public void cargarArchivoTestCG() {
-        System.out.println("cargarArchivo");
+        System.out.println("cargarArchivoControlGeneral");
         //System.out.println("PROBANDO MAIN "+new File("").getAbsolutePath ()+"/src/main/resources/tpi2018.csv");
         // System.out.println("prueba 2 "+ClassLoader.getSystemResource("tpi2018.csv").toString());
-        String path = DirectorioPrueba.toString() + "/controlGeneral.csv";
+        String path = tempfile.getAbsolutePath();
         Archivo instance = new Archivo();
         instance.setCargarArchivo(path, ",", "CONTROL GENERAL");
 
@@ -78,10 +78,10 @@ public class ArchivoTest {
     //test para historialPreventivo
     @Test
     public void cargarArchivoTestHP() {
-        System.out.println("cargarArchivo");
+        System.out.println("cargarArchivoHistorialPreventivo");
         //System.out.println("PROBANDO MAIN "+new File("").getAbsolutePath ()+"/src/main/resources/tpi2018.csv");
         // System.out.println("prueba 2 "+ClassLoader.getSystemResource("tpi2018.csv").toString());
-        String path = DirectorioPrueba.toString() + "/historialPreventivo.csv";
+        String path = tempfile1.getAbsolutePath();
         Archivo instance = new Archivo();
         instance.setCargarArchivo(path, ",", "HISTORIAL PREVENTIVO");
 
