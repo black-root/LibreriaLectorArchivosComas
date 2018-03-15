@@ -157,29 +157,11 @@
             <version>2.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-client -->
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-client</artifactId>
-            <version>4.0.0.Beta2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-test-tjws</artifactId>
-            <version>2.3.10.Final</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.jboss.resteasy/tjws -->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>tjws</artifactId>
             <version>4.0.0.Beta2</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-test-tjws</artifactId>
-            <version>RELEASE</version>
         </dependency>
         <dependency>
             <groupId>com.jayway.restassured</groupId>
