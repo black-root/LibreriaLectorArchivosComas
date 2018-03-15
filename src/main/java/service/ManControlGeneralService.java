@@ -8,7 +8,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 //esta clase puede ser probada en el navegador pero no tenemos :v un war, asi que tocara hacer unos test
-@Path("/manControlGeneralService")
+@Path("manControlGeneralService")
 public class ManControlGeneralService {
     private static List<MantenimientoControlGeneral> lista = controlador.Archivo.getCargarArchivoCG();
 

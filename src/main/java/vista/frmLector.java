@@ -78,13 +78,23 @@ public class frmLector extends javax.swing.JFrame {
         jLabel2.setText("Caracter que separa las columnas");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        cmbCaracter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ",", ".", "+", "/", " " }));
-        getContentPane().add(cmbCaracter, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 60, 20));
+        cmbCaracter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Coma \",\"", "Punto \".\"", "Suma \"+\"", "Pleca \"/\"" }));
+        cmbCaracter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCaracterActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cmbCaracter, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 110, 20));
 
         jLabel1.setText("Estructura de Archivo");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         cmbEstructuraArchivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CONTROL GENERAL", "HISTORIAL DE MANTENIMIENTO" }));
+        cmbEstructuraArchivo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbEstructuraArchivoItemStateChanged(evt);
+            }
+        });
         getContentPane().add(cmbEstructuraArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 
         pack();
@@ -92,7 +102,14 @@ public class frmLector extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
+       
+        cmbCaracter.setSelectedIndex(0);
+        cmbEstructuraArchivo.setSelectedIndex(0);
+        txtAbrir.setText("");
+        txtArea.setText("");
+        
         String texto = "";
+        String caracterSeparador = "";
         List<MantenimientoControlGeneral> listaCG = new ArrayList<>();
         List<MantenimientoHistorialPreventivo> listaHP = new ArrayList<>();
         JButton open = new JButton();
@@ -107,6 +124,27 @@ public class frmLector extends javax.swing.JFrame {
         //Le indicamos el filtro
         fc.setFileFilter(filtro);
 
+        
+        switch (cmbCaracter.getSelectedIndex()) {
+            case 0:
+                caracterSeparador = ",";
+                break;
+            case 1:
+                caracterSeparador = ".";
+                break;
+            case 2:
+                caracterSeparador = "+";
+                break;
+            case 3:
+                caracterSeparador = "/";
+                break;
+            default:
+                break;
+        }
+            
+        
+        
+        
         //Si se leccionamos la opcion abrir, procederemos a ejecutar lo siguiente
         if (fc.showOpenDialog(open) == JFileChooser.APPROVE_OPTION) {
 
@@ -116,7 +154,7 @@ public class frmLector extends javax.swing.JFrame {
             txtAbrir.setText(path);
             if (cmbEstructuraArchivo.getSelectedItem().toString().equals("CONTROL GENERAL")) {
                 try {
-                    ar.setCargarArchivo(path, cmbCaracter.getSelectedItem().toString(), cmbEstructuraArchivo.getSelectedItem().toString());
+                    ar.setCargarArchivo(path, caracterSeparador, cmbEstructuraArchivo.getSelectedItem().toString());
                     listaCG = controlador.Archivo.getCargarArchivoCG();
                 } catch (NullPointerException e) {
                     System.out.println("Error" + e);
@@ -133,7 +171,7 @@ public class frmLector extends javax.swing.JFrame {
                 }
             } else if(cmbEstructuraArchivo.getSelectedItem().toString().equals("HISTORIAL DE MANTENIMIENTO")) {
                 try {
-                    ar.setCargarArchivo(path, cmbCaracter.getSelectedItem().toString(), cmbEstructuraArchivo.getSelectedItem().toString());
+                    ar.setCargarArchivo(path, caracterSeparador, cmbEstructuraArchivo.getSelectedItem().toString());
                     listaHP = controlador.Archivo.getCargarArchivoHP();
                 } catch (NullPointerException e) {
                     System.out.println("Error" + e);
@@ -149,6 +187,14 @@ public class frmLector extends javax.swing.JFrame {
             txtArea.setText(texto);
         }
     }//GEN-LAST:event_btnAbrirActionPerformed
+
+    private void cmbEstructuraArchivoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbEstructuraArchivoItemStateChanged
+        cmbEstructuraArchivo.setEnabled(false);
+    }//GEN-LAST:event_cmbEstructuraArchivoItemStateChanged
+
+    private void cmbCaracterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCaracterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbCaracterActionPerformed
 
     /**
      * @param args the command line arguments
