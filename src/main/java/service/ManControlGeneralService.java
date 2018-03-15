@@ -15,9 +15,9 @@ public class ManControlGeneralService {
     @GET
     @Produces(MediaType.APPLICATION_JSON) //produce un json
     public  Response getMantenimientos(){
-
+        
         //nos devolvera 200
-        return Response.ok(lista).build();
+        return Response.ok(lista).build();       
     }
 
     //metodo para buscar uno en particular
